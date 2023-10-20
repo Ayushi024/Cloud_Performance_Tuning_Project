@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Bill Split Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="image-removebg-preview (9).png">
+</head>
+<body>
+    <div class="iframe-container">
+         <iframe src='https://my.spline.design/abstractgradientbackground-445fae1731f9601149d99d90cc920e46/' frameborder='0' width='100%' height='100%'></iframe>
+    </div>
+    <div class="container">
+        <div class="container2">
+        <img src="image-removebg-preview (9).png" alt="logo">
+        <div>
+            <h2><b>Select a Group:</b></h2>
+            <label for="groupSelector"></label>
+            <select id="groupSelector"></select>
+        </div>
+        <div class="input-container">
+            <h2><b>Create Group:</b></h2>
+            <label for="groupName"></label>
+            <div class="inputbar">
+            <input type="text" id="groupName" placeholder="Enter group name">
+            <button id="createGroup">Create</button>
+        </div>
+            
+        </div>
+        <div id="members" style="display: none;">
+            <h2>Add Members</h2>
+            
+            <div class="input-container">
+                <div class="inputbar1">
+                <input type="text" id="memberName" placeholder="Enter member name">
+                <button id="addMember">Add Member</button>
+            </div>
+            </div>
+            <ul id="memberList"></ul>
+            
+            <div class="input-container">
+                <label for="selectedMembers"><b>Select Members to Split:</b></label>
+                <div id="checkboxContainer"></div>
+                
+            </div>
+            <div class="input-container">
+                <h2><b>Divide Bill:</b></h2>
+                <label for="billAmount">Enter the total bill amount:</label>
+                <input type="number" id="billAmount" step="0.01" placeholder="Enter the bill amount">
+                <label for="payerName">Who paid the bill?</label>
+                <input type="text" id="payerName" placeholder="Enter payer's name">
+                <label for="paymentPurpose">For what was the payment made?</label>
+                <input type="text" id="paymentPurpose" placeholder="Enter payment purpose">
+                <button id="divideBill">Divide Bill</button>
+            </div>
+        </div>
+        <div>
+            <div id="paymentHistory"></div>
+            <div>
+                <h2>Transaction History</h2>
+                <ul id="transactionHistory"></ul>
+            </div>
+            <button id="showTransactions">Show Transactions</button>
+        </div>
+            </div> 
+            </div>    
+        </div>     
+    <script src="script.js"></script>
+</body>
+</html>
