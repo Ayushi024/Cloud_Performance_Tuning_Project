@@ -63,4 +63,4 @@ jobs:
           app-name: 'FairShare1'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_427C8D99F7DE455E90E4420BDB95378A }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ED25DF48B3BE414E94DAFC2727C78F10 }}
