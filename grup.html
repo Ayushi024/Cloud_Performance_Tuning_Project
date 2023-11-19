@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Splitting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding-top: 70px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px ;
+        
+            background-color: transparent;
+            border:solid 1px black;
+            border-radius: 13px;
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        select, input[type="text"] {
+            width: 97%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        select,  input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        #transactionHistory {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 200px;
+            overflow-y: scroll;
+        }
+        
+.iframe-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+img{
+    width: 250px;
+    height: auto;
+    padding-left: 106px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="iframe-container">
+        <iframe src='https://my.spline.design/abstractgradientbackground-445fae1731f9601149d99d90cc920e46/' frameborder='0' width='100%' height='100%'></iframe>
+   </div>
+    <div class="container">
+        <h1>Expense Splitting Website</h1>
+        <form id="groupForm" action="group.php" method="post" onsubmit="createOrSelectGroup()">
+            <label for="group">Select an Existing Group:</label>
+            <select id="group" name="group">
+               
+            </select>
+            <label for="newGroup">Or Create a New Group:</label>
+            <input type="text" id="newGroup" name="newGroup" placeholder="Enter group name">
+            
+            <input type="button" value="Create/Select Group" onclick="createOrSelectGroup()">
+        </form>
+
+  
+
+    </div>
+
+    <script>
+       
+        function updateGroupDropdown() {
+            const groupDropdown = document.getElementById("group");
+            
+            groupDropdown.innerHTML = "";
+           
+            existingGroups.forEach(group => {
+                const option = document.createElement("option");
+                option.value = group;
+                option.textContent = group;
+                groupDropdown.appendChild(option);
+            });
+        }
+
+       
+        let existingGroups = [];
+        fetch('getData.php')
+            .then(response => response.json())
+            .then(data => {
+                existingGroups = data;
+                updateGroupDropdown();
+            })
+            .catch(error => console.error('Error fetching data:', error));
+
+       
+        function createOrSelectGroup() {
+            const selectedGroup = document.getElementById("group").value;
+            const newGroup = document.getElementById("newGroup").value.trim();
+
+            if (!selectedGroup && !newGroup) {
+                alert("Please select an existing group or enter a new group name.");
+                return;
+            }
+
+            document.getElementById("groupForm").submit();
+        }
+
+      
+        function openGroupPage() {
+            window.location.href = "members.html";
+        }
+    </script>
+</body>
+</html>
