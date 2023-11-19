@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Splitter</title>
+    <style>
+        body {
+           
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            padding-top: 70px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: transparent;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            border:solid 1px black;
+            border-radius: 13px;
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="number"], select, input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border:solid 1px black;
+            border-radius: 13px;
+        }
+        
+.iframe-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+img{
+    width: 250px;
+    height: auto;
+    padding-left: 106px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="iframe-container">
+        <iframe src='https://my.spline.design/abstractgradientbackground-445fae1731f9601149d99d90cc920e46/' frameborder='0' width='100%' height='100%'></iframe>
+   </div>
+    
+    <div class="container">
+        <h1>Bill Splitter</h1>
+        <label for="billName">Bill Name:</label>
+        <input type="text" id="billName" placeholder="Enter bill name">
+        
+        <label for="billAmount">Bill Amount:</label>
+        <input type="number" id="billAmount" placeholder="Enter bill amount">
+        
+        <label for="paidBy">Paid By:</label>
+        <select id="paidBy">
+            <option value="" disabled selected>Select a member</option>
+            <option value="Avyukt">Avyukt</option>
+            <option value="Hrida">Hrida</option>
+            <option value="Aryansh">Aryansh</option>
+            <option value="Aryanshi">Aryanshi</option>
+            <option value="Hari">Hari</option>
+            <!-- Members added dynamically based on the "members.html" page -->
+        </select>
+
+        <label>Divide Among:</label>
+        <div id="memberCheckboxes">
+            <!-- Checkboxes for dividing the bill added dynamically -->
+            <input type="checkbox" id="avyuktCheckbox" value="Avyukt">
+            <label for="avyuktCheckbox">Avyukt</label>
+
+            <input type="checkbox" id="hridaCheckbox" value="Hrida">
+            <label for="hridaCheckbox">Hrida</label>
+
+            <input type="checkbox" id="aryanshCheckbox" value="Aryansh">
+            <label for="aryanshCheckbox">Aryansh</label>
+
+            <input type="checkbox" id="aryanshiCheckbox" value="Aryanshi">
+            <label for="aryanshiCheckbox">Aryanshi</label>
+
+            <input type="checkbox" id="HariCheckbox" value="Aryanshi">
+            <label for="HairCheckbox">Hari</label>
+
+        </div>
+
+        <input type="button" value="Divide Bill" onclick="divideBill()">
+    </div>
+
+    <div class="container" id="result">
+        <h2>Results</h2>
+        <div id="resultsText"></div>
+    </div>
+
+    <script>
+        // Function to divide the bill among selected members
+        function divideBill() {
+            const billName = document.getElementById("billName").value;
+            const billAmount = parseFloat(document.getElementById("billAmount").value);
+            const paidBy = document.getElementById("paidBy").value;
+
+            const selectedMembers = [];
+            const memberCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+
+            memberCheckboxes.forEach(checkbox => {
+                selectedMembers.push(checkbox.value);
+            });
+
+            const amountPerMember = billAmount / (selectedMembers.length); 
+            const resultsText = document.getElementById("resultsText");
+            resultsText.innerHTML = `Bill Name: ${billName}<br>`;
+            resultsText.innerHTML += `Bill Amount: $${billAmount.toFixed(2)}<br>`;
+            resultsText.innerHTML += `Paid By: ${paidBy}<br>`;
+            resultsText.innerHTML += `Divided Among: ${selectedMembers.join(', ')}<br>`;
+            resultsText.innerHTML += `Amount per Member: $${amountPerMember.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
