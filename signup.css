@@ -1,0 +1,91 @@
+html{
+background-repeat:no-repeat;
+background-size: cover;
+    width: 100%;
+    height: 110%;
+font-family: Poppins;
+    padding-top: 1.8%;
+}
+p{
+text-align: center;
+}
+.login1{
+margin: 40px auto;
+position: relative;
+background-color: transparent;
+padding: 1% 1% 1%;
+width: 30%;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+border-radius: 13px;
+padding-top: 2%;
+border:solid 1px black;
+
+
+}
+
+
+input[type=email], input[type=password], input[type=text] {
+padding: 0 3%;
+width: 70%;
+height: 40px;
+color: #404040;
+background: white;
+border: 2px solid #e6e6e6;
+border-radius: 20px;
+font-family: Poppins; 
+margin-left: 12%;
+background-color: #e6e6e6;
+}
+#signin{
+font-family: Poppins;
+width: 100px;
+background-color: #57b846; /* Green */
+border: none;
+color: white;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 18px;
+padding: 10px 28px;
+padding-left: 25px;
+padding-right: 92px;
+border-radius: 25px;
+transition-duration: 0.4s;
+margin-left: 28%;
+
+}
+#signin:hover{
+background-color: #57b846; /* Green */
+color: white;
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+cursor: pointer;
+
+}
+#remem{
+margin-left: 20%   ;
+
+}
+
+#avatar{
+width: 50%;
+height:50%;
+margin-left:25%;
+}
+.iframe-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+img{
+    width: 250px;
+    height: auto;
+    padding-left: 106px;
+}
