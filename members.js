@@ -76,9 +76,9 @@ function deleteMember() {
         const groupIndex = groupMembers[selectedGroup].indexOf(selectedMember);
         if (groupIndex !== -1) {
             groupMembers[selectedGroup].splice(groupIndex, 1);
-           
+            // Update the member list
             listGroupMembers();
-          
+            // Update the delete member select options
             updateDeleteMemberSelect(selectedGroup);
         }
     }
@@ -88,4 +88,5 @@ function splitBill() {
     window.location.href = "split_bill.html";
 }
 
+// Initial population of the group select options
 updateGroupSelect();
